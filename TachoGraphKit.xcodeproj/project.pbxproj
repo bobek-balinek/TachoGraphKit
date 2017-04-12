@@ -7,13 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		348CE5071E9D76810075499F /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348CE5061E9D76810075499F /* IndicatorView.swift */; };
 		34A758801E9C2315007B74F0 /* TachoGraphKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 34A7587E1E9C2315007B74F0 /* TachoGraphKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34A758871E9C241B007B74F0 /* TachoGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A758861E9C241B007B74F0 /* TachoGraph.swift */; };
+		34A758891E9C3844007B74F0 /* TachoSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A758881E9C3844007B74F0 /* TachoSegment.swift */; };
+		34A7588B1E9C3862007B74F0 /* SegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A7588A1E9C3862007B74F0 /* SegmentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		348CE5061E9D76810075499F /* IndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		34A7587B1E9C2315007B74F0 /* TachoGraphKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TachoGraphKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34A7587E1E9C2315007B74F0 /* TachoGraphKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TachoGraphKit.h; sourceTree = "<group>"; };
 		34A7587F1E9C2315007B74F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34A758861E9C241B007B74F0 /* TachoGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TachoGraph.swift; sourceTree = "<group>"; };
+		34A758881E9C3844007B74F0 /* TachoSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TachoSegment.swift; sourceTree = "<group>"; };
+		34A7588A1E9C3862007B74F0 /* SegmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +56,10 @@
 			children = (
 				34A7587E1E9C2315007B74F0 /* TachoGraphKit.h */,
 				34A7587F1E9C2315007B74F0 /* Info.plist */,
+				348CE5061E9D76810075499F /* IndicatorView.swift */,
+				34A7588A1E9C3862007B74F0 /* SegmentView.swift */,
+				34A758861E9C241B007B74F0 /* TachoGraph.swift */,
+				34A758881E9C3844007B74F0 /* TachoSegment.swift */,
 			);
 			path = TachoGraphKit;
 			sourceTree = "<group>";
@@ -96,6 +108,7 @@
 					34A7587A1E9C2315007B74F0 = {
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = 9NSMA57MP7;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -132,6 +145,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34A758871E9C241B007B74F0 /* TachoGraph.swift in Sources */,
+				34A7588B1E9C3862007B74F0 /* SegmentView.swift in Sources */,
+				348CE5071E9D76810075499F /* IndicatorView.swift in Sources */,
+				34A758891E9C3844007B74F0 /* TachoSegment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +259,7 @@
 		34A758841E9C2315007B74F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 9NSMA57MP7;
@@ -250,10 +268,12 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = TachoGraphKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spirograph-limited.TachoGraphKit";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TachoGraphKit;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -261,6 +281,7 @@
 		34A758851E9C2315007B74F0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 9NSMA57MP7;
@@ -269,9 +290,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = TachoGraphKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spirograph-limited.TachoGraphKit";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TachoGraphKit;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -296,6 +318,7 @@
 				34A758851E9C2315007B74F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
