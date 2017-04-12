@@ -25,6 +25,6 @@ public struct TachoSegment {
             components: [1.0, 1.0, 1.0, 1.0]
         )
 
-        return TachoSegment(start: 0, length: 0, color: white!)
+        return TachoSegment(start: 0, length: 1, color: white!)
     }
 }

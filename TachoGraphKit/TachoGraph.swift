@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 open class TachoGraph: UIView {
 
     public var image: UIImage? {
@@ -23,7 +24,7 @@ open class TachoGraph: UIView {
         }
     }
     public var idleColor: UIColor = UIColor.darkGray
-    public var segments: [TachoSegment] = [] {
+    public var segments: [TachoSegment] = [TachoSegment.empty] {
         willSet {
             segmentViews.forEach { $0.removeFromSuperview() }
         }
@@ -31,17 +32,17 @@ open class TachoGraph: UIView {
             updateSegmentViews()
         }
     }
-    public var completed: CGFloat = 0 {
+    @IBInspectable public var completed: CGFloat = 0 {
         didSet {
             setNeedsDisplay()
         }
     }
-    public var imageScale: CGFloat = 0.87 {
+    @IBInspectable public var imageScale: CGFloat = 0.87 {
         didSet {
             setNeedsLayout()
         }
     }
-    public var secondaryImageScale: CGFloat = 0.27 {
+    @IBInspectable public var secondaryImageScale: CGFloat = 0.27 {
         didSet {
             setNeedsLayout()
         }
@@ -95,6 +96,8 @@ open class TachoGraph: UIView {
         indicatorView.frame = bounds
 
         addSubview(indicatorView)
+
+        updateSegmentViews()
     }
 
     fileprivate func updateSegmentViews() {
