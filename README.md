@@ -1,4 +1,4 @@
-![image](https://github.com/bobek-balinek/TachoGraphKit/images/logo.png)
+![image](https://github.com/bobek-balinek/TachoGraphKit/raw/master/images/logo.png)
 
 TachoGraphKit
 ======
