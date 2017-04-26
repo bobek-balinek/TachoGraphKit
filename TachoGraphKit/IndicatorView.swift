@@ -30,10 +30,11 @@ class IndicatorView: UIView {
     }
 
     fileprivate func calculateFrame(_ rect: CGRect) -> CGRect {
+        // Values based on original width of 200
         let midFrame: CGFloat = rect.midX
-        let topFrame: CGFloat = 15.0
-        let height: CGFloat = 7.0
-        let width: CGFloat = 10.0
+        let topFrame: CGFloat = 0.075 * rect.height
+        let height: CGFloat = 0.035 * rect.height
+        let width: CGFloat = 0.05 * rect.width
         let posX: CGFloat = (midFrame - width / 2)
 
         return CGRect(x: posX, y: topFrame, width: width, height: height)
@@ -50,7 +51,7 @@ class IndicatorView: UIView {
         let path = UIBezierPath()
         path.move(to: CGPoint(x: 0, y: height))
         path.addLine(to: CGPoint(x: 0, y: height))
-        path.addLine(to: CGPoint(x: 5.0, y: 0))
+        path.addLine(to: CGPoint(x: (width/2), y: 0))
         path.addLine(to: CGPoint(x: width, y: height))
         path.close()
 

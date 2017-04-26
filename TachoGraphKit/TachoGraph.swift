@@ -152,6 +152,7 @@ open class TachoGraph: UIView {
         segmentViews.forEach { $0.frame = bounds }
 
         indicatorView.frame = bounds
+        indicatorView.setNeedsDisplay()
     }
 
     open override func draw(_ rect: CGRect) {

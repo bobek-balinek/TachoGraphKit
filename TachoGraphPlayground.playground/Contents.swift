@@ -11,7 +11,7 @@ let containerHeight: CGFloat = 667.0
 let containerFrame: CGRect = CGRect(x: 0, y: 0, width: containerWidth, height: containerHeight)
 let containerView = UIView(frame: containerFrame)
 
-let graphWidth: CGFloat = 250
+let graphWidth: CGFloat = 200
 let graphX: CGFloat = containerView.frame.midX - (graphWidth / 2)
 let graphY: CGFloat = containerView.frame.midY - (graphWidth / 2)
 let graphFrame = CGRect(x: graphX, y: graphY, width: graphWidth, height: graphWidth)
