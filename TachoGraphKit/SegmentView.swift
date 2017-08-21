@@ -29,6 +29,7 @@ class SegmentView: UIView {
             setNeedsDisplay()
         }
     }
+    var clockwise: Bool = true
 
     var start: CGFloat {
         return CGFloat(segment.start)
@@ -95,7 +96,7 @@ class SegmentView: UIView {
             radius: radius,
             startAngle: startAngle(),
             endAngle: endAngle(),
-            clockwise: true
+            clockwise: clockwise
         )
 
         path.lineWidth = lineHeight

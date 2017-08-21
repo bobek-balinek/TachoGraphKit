@@ -32,6 +32,11 @@ open class TachoGraph: UIView {
             updateSegmentViews()
         }
     }
+    @IBInspectable public var clockwise: Bool = true {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
     @IBInspectable public var completed: CGFloat = 0 {
         didSet {
             setNeedsDisplay()
@@ -52,6 +57,7 @@ open class TachoGraph: UIView {
             return value + CGFloat(segment.length)
         })
     }
+    public var resizeSubviewsToScale: Bool = true
 
     fileprivate var completedLength: CGFloat {
         return completed * segmentsTotalLength
@@ -126,10 +132,17 @@ open class TachoGraph: UIView {
     open override func layoutSubviews() {
         super.layoutSubviews()
 
-        // Background View
         let imgOneOffset: CGFloat = (1 - imageScale) * bounds.width
         let imgOneFrame: CGRect = bounds.insetBy(dx: imgOneOffset, dy: imgOneOffset)
         let imgOneBounds: CGRect = CGRect(x: 0, y: 0, width: imgOneFrame.width, height: imgOneFrame.height)
+
+        subviews.forEach { (view) in
+            view.frame = resizeSubviewsToScale ? imgOneFrame : bounds
+            view.setNeedsLayout()
+        }
+
+
+        // Background View
         let imgOneMask = CAShapeLayer()
         imgOneMask.path = UIBezierPath(ovalIn: imgOneBounds).cgPath
         backgroundView.frame = imgOneFrame
@@ -159,6 +172,7 @@ open class TachoGraph: UIView {
         super.draw(rect)
 
         segmentViews.forEach { view in
+            view.clockwise = clockwise
             view.rotationAngle = rotationAngle
             view.tintColor = tintColor(for: view.segment)
         }
