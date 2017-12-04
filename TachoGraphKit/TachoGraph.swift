@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable
+//@IBDesignable
 open class TachoGraph: UIView {
 
     public var image: UIImage? {
