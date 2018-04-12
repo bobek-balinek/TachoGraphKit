@@ -14,13 +14,11 @@ open class TachoGraph: UIView {
     public var image: UIImage? {
         didSet {
             backgroundView.image = image
-            setNeedsLayout()
         }
     }
     public var secondaryImage: UIImage? {
         didSet {
             secondaryImageView.image = secondaryImage
-            setNeedsLayout()
         }
     }
     public var idleColor: UIColor = UIColor.darkGray
@@ -85,6 +83,7 @@ open class TachoGraph: UIView {
     fileprivate func commonInit() {
         // Background Image View
         backgroundView = UIImageView(frame: bounds)
+        backgroundView.contentMode = .scaleAspectFill
         backgroundView.layer.anchorPoint = center
         backgroundView.frame = bounds
 
@@ -92,6 +91,7 @@ open class TachoGraph: UIView {
 
         // Secondary Image View
         secondaryImageView = UIImageView(frame: bounds)
+        secondaryImageView.contentMode = .scaleAspectFill
         secondaryImageView.layer.anchorPoint = center
         secondaryImageView.frame = bounds
 
@@ -141,7 +141,6 @@ open class TachoGraph: UIView {
             view.setNeedsLayout()
         }
 
-
         // Background View
         let imgOneMask = CAShapeLayer()
         imgOneMask.path = UIBezierPath(ovalIn: imgOneBounds).cgPath
@@ -166,15 +165,23 @@ open class TachoGraph: UIView {
 
         indicatorView.frame = bounds
         indicatorView.setNeedsDisplay()
+
+        updateSegments()
+    }
+
+    open func updateSegments() {
+        segmentViews.forEach { view in
+            view.clockwise = clockwise
+            view.rotationAngle = 0
+            view.tintColor = tintColor(for: view.segment)
+        }
     }
 
     open override func draw(_ rect: CGRect) {
         super.draw(rect)
 
-        segmentViews.forEach { view in
-            view.clockwise = clockwise
-            view.rotationAngle = rotationAngle
-            view.tintColor = tintColor(for: view.segment)
+        segmentViews.forEach { (view) in
+            view.transform = CGAffineTransform.identity.rotated(by: rotationAngle)
         }
     }
 }
