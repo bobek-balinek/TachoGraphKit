@@ -171,6 +171,8 @@ open class TachoGraph: UIView {
 
     open func updateSegments() {
         segmentViews.forEach { view in
+            view.frame = bounds
+            view.bounds = bounds
             view.clockwise = clockwise
             view.rotationAngle = 0
             view.tintColor = tintColor(for: view.segment)
