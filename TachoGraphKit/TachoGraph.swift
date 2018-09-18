@@ -159,7 +159,7 @@ open class TachoGraph: UIView {
         secondaryImageView.frame = imgTwoFrame
         secondaryImageView.layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
 
-        bringSubview(toFront: secondaryImageView)
+        bringSubviewToFront(secondaryImageView)
 
         segmentViews.forEach { $0.frame = bounds }
 
